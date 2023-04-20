@@ -1,9 +1,9 @@
-import Calculator from "./components/calculator";
+import ArithmeticCalculator from "./components/ArithmeticCalculator";
 
 function App() {
   return (
     <>
-      <Calculator />
+      <ArithmeticCalculator />
     </>
   );
 }

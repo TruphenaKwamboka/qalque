@@ -1,14 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
 
-const Calculator = () => {
+const Arithmetic = () => {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
+  const [useExpression, setUseExpression] = useState(true);
 
   const additionUrl = "http://127.0.0.1:5000/arithmetic/addition/";
   const subtractionUrl = "http://127.0.0.1:5000/arithmetic/subtraction/";
   const multiplicationUrl = "http://127.0.0.1:5000/arithmetic/multiplication/";
   const divisionUrl = "http://127.0.0.1:5000/arithmetic/division/";
+  const exponentUrl = "http://127.0.0.1:5000/arithmetic/exponent/";
+  const modulusUrl = "http://127.0.0.1:5000/arithmetic/modulo/";
+
+  const expressionUrl = "http://127.0.0.1:5000/arithmetic/expression_eval/";
 
   const Makerequest = (data, url) => {
     axios
@@ -16,7 +21,6 @@ const Calculator = () => {
         data: data,
       })
       .then((response) => {
-        console.log(response.data.result);
         setResult(response.data.result.toString());
       })
       .catch((error) => {
@@ -24,7 +28,7 @@ const Calculator = () => {
       });
   };
 
-  const ops = ["/", "*", "+", "-"];
+  const ops = ["/", "*", "+", "-", "^", "%"];
 
   const updateCalc = (value) => {
     if (
@@ -37,8 +41,9 @@ const Calculator = () => {
     setCalc(calc + value);
 
     if (!ops.includes(value)) {
-      performOperation(calc + value);
-      // setResult(eval(calc + value).toString());
+      useExpression
+        ? evaluateExpression(calc + value)
+        : performOperation(calc + value);
     }
   };
 
@@ -49,16 +54,12 @@ const Calculator = () => {
         return parseFloat(number);
       });
 
-      console.log(newNum);
-
       Makerequest(newNum, additionUrl);
     } else if (value.includes(ops[3])) {
       const num = value.split(ops[3]);
       const newNum = num.map((number) => {
         return parseFloat(number);
       });
-
-      console.log(newNum);
 
       Makerequest(newNum, subtractionUrl);
     } else if (value.includes(ops[1])) {
@@ -67,8 +68,6 @@ const Calculator = () => {
         return parseFloat(number);
       });
 
-      console.log(newNum);
-
       Makerequest(newNum, multiplicationUrl);
     } else if (value.includes(ops[0])) {
       const num = value.split(ops[0]);
@@ -76,10 +75,26 @@ const Calculator = () => {
         return parseFloat(number);
       });
 
-      console.log(newNum);
-
       Makerequest(newNum, divisionUrl);
+    } else if (value.includes(ops[4])) {
+      const num = value.split(ops[4]);
+      const newNum = num.map((number) => {
+        return parseFloat(number);
+      });
+
+      Makerequest(newNum, exponentUrl);
+    } else if (value.includes(ops[5])) {
+      const num = value.split(ops[5]);
+      const newNum = num.map((number) => {
+        return parseFloat(number);
+      });
+
+      Makerequest(newNum, modulusUrl);
     }
+  };
+
+  const evaluateExpression = (value) => {
+    Makerequest(value, expressionUrl);
   };
 
   const createDigits = () => {
@@ -111,6 +126,14 @@ const Calculator = () => {
 
   return (
     <div className="App">
+      <label>
+        <input
+          type="checkbox"
+          value={useExpression}
+          onClick={() => setUseExpression(!useExpression)}
+        />
+        One type operator
+      </label>
       <div className="calculator">
         <div className="display">
           {result ? <span>({result})</span> : ""} {calc || "0"}
@@ -120,14 +143,23 @@ const Calculator = () => {
           <button onClick={() => updateCalc("*")}>x</button>
           <button onClick={() => updateCalc("+")}>+</button>
           <button onClick={() => updateCalc("-")}>-</button>
-          <button onClick={deleteLast}>DEL</button>
         </div>
         <div className="operators">
-          <button onClick={() => updateCalc("//")}>//</button>
           <button onClick={() => updateCalc("^")}>^</button>
           <button onClick={() => updateCalc("%")}>%</button>
-          <button onClick={() => updateCalc("√")}>√</button>
-          <button>CLS</button>
+          <button onClick={deleteLast}>DEL</button>
+          <button
+            onClick={() => {
+              setCalc("");
+              setResult("");
+            }}
+            style={{
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            CLS
+          </button>
         </div>
         <div className="digits">
           {createDigits()}
@@ -139,4 +171,4 @@ const Calculator = () => {
     </div>
   );
 };
-export default Calculator;
+export default Arithmetic;

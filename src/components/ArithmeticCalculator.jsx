@@ -4,7 +4,7 @@ import { useState } from "react";
 const ArithmeticCalculator = () => {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
-  const [useExpression, setUseExpression] = useState(false);
+  const [useExpression, setUseExpression] = useState(true);
 
   const additionUrl = "http://127.0.0.1:5000/arithmetic/addition/";
   const subtractionUrl = "http://127.0.0.1:5000/arithmetic/subtraction/";
@@ -132,7 +132,7 @@ const ArithmeticCalculator = () => {
           value={useExpression}
           onClick={() => setUseExpression(!useExpression)}
         />
-        Use expression
+        One type operator
       </label>
       <div className="calculator">
         <div className="display">

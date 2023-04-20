@@ -122,6 +122,13 @@ const Calculator = () => {
           <button onClick={() => updateCalc("-")}>-</button>
           <button onClick={deleteLast}>DEL</button>
         </div>
+        <div className="operators">
+          <button onClick={() => updateCalc("//")}>//</button>
+          <button onClick={() => updateCalc("^")}>^</button>
+          <button onClick={() => updateCalc("%")}>%</button>
+          <button onClick={() => updateCalc("√")}>√</button>
+          <button>CLS</button>
+        </div>
         <div className="digits">
           {createDigits()}
           <button onClick={() => updateCalc("0")}>0</button>

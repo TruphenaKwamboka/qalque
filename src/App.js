@@ -1,9 +1,14 @@
-import ArithmeticCalculator from "./components/ArithmeticCalculator";
+import { Routes, Route } from "react-router-dom";
+import Arithmetic from "./Pages/Arithmetic";
+import BMI from "./Pages/BMI";
 
 function App() {
   return (
     <>
-      <ArithmeticCalculator />
+      <Routes>
+        <Route path="/" element={<Arithmetic />} />
+        <Route path="/bmi" element={<BMI />} />
+      </Routes>
     </>
   );
 }

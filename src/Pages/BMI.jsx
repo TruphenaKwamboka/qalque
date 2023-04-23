@@ -5,40 +5,42 @@ import Overweight from "../images/overweight.png";
 import Obese from "../images/obese.jpg";
 
 export default function BMI() {
-  const [weight, setweight] = useState(0);
-  const [height, setheight] = useState(0);
-  const [bmi, setbmi] = useState("");
-  const [message, setmessage] = useState("");
-  let imgsrc;
-  let calculatebmi = (event) => {
+  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [bmi, setBmi] = useState("");
+  const [message, setMessage] = useState("");
+
+  let imgSrc;
+  
+  let calculateBmi = (event) => {
     event.preventDefault();
-    if (weight == 0 || height == 0) {
+    if (weight === 0 || height === 0) {
       alert("Invalid input");
     } else {
       let bmi = weight / (height / 100) ** 2;
-      setbmi(bmi.toFixed(2));
+      setBmi(bmi.toFixed(2));
 
       if (bmi < 18.5) {
-        setmessage("You are Underweight");
+        setMessage("You are Underweight");
       } else if (bmi >= 18.5 && bmi <= 24.9) {
-        setmessage("You are Normal");
+        setMessage("You are Normal");
       } else if (bmi >= 25 && bmi <= 29.9) {
-        setmessage("You are Overweight");
+        setMessage("You are Overweight");
       } else {
-        setmessage("You are Obese");
+        setMessage("You are Obese");
       }
     }
-    // let imgsrc;
+    // let imgSrc;
     if (bmi < 1) {
-      imgsrc = null;
+      imgSrc = null;
     } else if (bmi < 18.5) {
-      imgsrc = { Underweight };
+      imgSrc = { Underweight };
     } else if (bmi >= 18.5 && bmi <= 24.5) {
-      imgsrc = { Healthy };
+      imgSrc = { Healthy };
     } else if (bmi >= 25 && bmi <= 29.9) {
-      imgsrc = { Overweight };
+      imgSrc = { Overweight };
     } else {
-      imgsrc = { Obese };
+      imgSrc = { Obese };
     }
   };
 
@@ -46,14 +48,14 @@ export default function BMI() {
     <div className="bmi">
       <div className="container">
         <h2 className="center">BMI calculator</h2>
-        <form onSubmit={calculatebmi}>
+        <form onSubmit={calculateBmi}>
           <div>
             <label>Weight in (Kg)</label>
-            <input value={weight} onChange={(e) => setweight(e.target.value)} />
+            <input value={weight} onChange={(e) => setWeight(e.target.value)} />
           </div>
           <div>
             <label>Height in (Cm)</label>
-            <input value={height} onChange={(e) => setheight(e.target.value)} />
+            <input value={height} onChange={(e) => setHeight(e.target.value)} />
           </div>
           <button className="button" type="submit">
             Submit
@@ -65,7 +67,7 @@ export default function BMI() {
           <p>{message}</p>
         </div>
         <div className="img-container">
-          <img src={imgsrc} alt=""></img>
+          <img src={imgSrc} alt=""></img>
         </div>
       </div>
     </div>

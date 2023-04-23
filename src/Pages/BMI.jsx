@@ -1,46 +1,45 @@
 import React, { useState } from "react";
-import Underweight from "../images/skinny.jpg";
-import Healthy from "../images/healthy.jpg";
-import Overweight from "../images/overweight.png";
-import Obese from "../images/obese.jpg";
+import underweight from "../images/skinny.jpg";
+import healthy from "../images/healthy.jpg";
+import overweight from "../images/overweight.png";
+import obese from "../images/obese.jpg";
 
 export default function BMI() {
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState("");
   const [message, setMessage] = useState("");
+  const [imgSrc, setImgSrc] = useState(null);
 
-  let imgSrc;
-  
   let calculateBmi = (event) => {
     event.preventDefault();
     if (weight === 0 || height === 0) {
       alert("Invalid input");
     } else {
-      let bmi = weight / (height / 100) ** 2;
-      setBmi(bmi.toFixed(2));
-
-      if (bmi < 18.5) {
-        setMessage("You are Underweight");
-      } else if (bmi >= 18.5 && bmi <= 24.9) {
-        setMessage("You are Normal");
-      } else if (bmi >= 25 && bmi <= 29.9) {
-        setMessage("You are Overweight");
-      } else {
-        setMessage("You are Obese");
-      }
+      let answer = weight / (height / 100) ** 2;
+      setBmi(answer.toFixed(2));
     }
-    // let imgSrc;
-    if (bmi < 1) {
-      imgSrc = null;
-    } else if (bmi < 18.5) {
-      imgSrc = { Underweight };
-    } else if (bmi >= 18.5 && bmi <= 24.5) {
-      imgSrc = { Healthy };
+    
+    if (bmi < 18.5) {
+      setMessage("You are underweight");
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      setMessage("You are Normal");
     } else if (bmi >= 25 && bmi <= 29.9) {
-      imgSrc = { Overweight };
+      setMessage("You are overweight");
     } else {
-      imgSrc = { Obese };
+      setMessage("You are obese");
+    }
+
+    if (bmi < 1) {
+      setImgSrc(null);
+    } else if (bmi < 18.5) {
+      setImgSrc(underweight);
+    } else if (bmi >= 18.5 && bmi <= 24.5) {
+      setImgSrc(healthy);
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      setImgSrc(overweight);
+    } else {
+      setImgSrc(obese);
     }
   };
 

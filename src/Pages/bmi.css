@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    padding: 10px;
+}
+
+.bmi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url(https://img.freepik.com/premium-vector/boy-girl-running-quickly_124827-14.jpg?w=2000); */
+    backdrop-filter: blur(15px);
+    
+}
+
+.center{
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+    color: green;
+}
+.container{
+    width: 500px;
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    
+    /* transform: translate(-50%, -50%); */
+    box-shadow: 2px 2px 5px palevioletred;
+    opacity: 0.6;
+    border-radius: 25px;
+}
+
+.height{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: larger;
+}
+
+.weight{
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-size: larger;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    border-bottom: 2px solid palevioletred;
+}
+
+.button {
+    border: none;
+    color: black;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px palevioletred;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 250px;
+}
+
+.reload{
+    border: none;
+    color: black;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px palevioletred;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.img-container{
+    display: flex;
+    height:25%;
+    width:25%;
+    border-radius: none;
+}

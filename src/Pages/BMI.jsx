@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import "./bmi.css";
 import underweight from "../images/skinny.jpg";
-import healthy from "../images/healthy.jpg";
+import normal from "../images/healthy.jpg";
 import overweight from "../images/overweight.png";
 import obese from "../images/obese.jpg";
 
 export default function BMI() {
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState();
+  const [height, setHeight] = useState();
   const [bmi, setBmi] = useState("");
   const [message, setMessage] = useState("");
   const [imgSrc, setImgSrc] = useState(null);
@@ -19,7 +20,7 @@ export default function BMI() {
       let answer = weight / (height / 100) ** 2;
       setBmi(answer.toFixed(2));
     }
-    
+
     if (bmi < 18.5) {
       setMessage("You are underweight");
     } else if (bmi >= 18.5 && bmi <= 24.9) {
@@ -35,7 +36,7 @@ export default function BMI() {
     } else if (bmi < 18.5) {
       setImgSrc(underweight);
     } else if (bmi >= 18.5 && bmi <= 24.5) {
-      setImgSrc(healthy);
+      setImgSrc(normal);
     } else if (bmi >= 25 && bmi <= 29.9) {
       setImgSrc(overweight);
     } else {
@@ -48,11 +49,11 @@ export default function BMI() {
       <div className="container">
         <h2 className="center">BMI calculator</h2>
         <form onSubmit={calculateBmi}>
-          <div>
+          <div className="weight">
             <label>Weight in (Kg)</label>
             <input value={weight} onChange={(e) => setWeight(e.target.value)} />
           </div>
-          <div>
+          <div className="height">
             <label>Height in (Cm)</label>
             <input value={height} onChange={(e) => setHeight(e.target.value)} />
           </div>

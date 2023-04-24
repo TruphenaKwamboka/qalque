@@ -13,7 +13,7 @@ export default function BMI() {
     if (weight === 0 || height === 0) {
       alert("Invalid input");
     } else {
-      let answer = weight / (height / 100) ** 2;
+      const answer = weight / Math.pow(height / 100, 2);
       setBmi(answer.toFixed(2));
     }
 
@@ -23,7 +23,7 @@ export default function BMI() {
       setMessage("You are Normal");
     } else if (bmi >= 25 && bmi <= 29.9) {
       setMessage("You are overweight");
-    } else {
+    } else if (bmi >= 30) {
       setMessage("You are obese");
     }
   };
@@ -41,10 +41,12 @@ export default function BMI() {
             <label>Height in (Cm)</label>
             <input value={height} onChange={(e) => setHeight(e.target.value)} />
           </div>
-          <button className="button" type="submit">
+          <button className="submit" type="submit">
             Submit
           </button>
-          <button className="reload">Reload</button>
+          <button className="reload" onClick={() => window.location.reload()}>
+            Reset
+          </button>
         </form>
         <div className="center">
           <h3>Your BMI is: {bmi}</h3>

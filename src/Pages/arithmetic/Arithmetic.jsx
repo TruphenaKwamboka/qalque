@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 
+import "./arithmetic.css"
+
 const Arithmetic = () => {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");

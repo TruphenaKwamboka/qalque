@@ -54,7 +54,7 @@ input {
     border-bottom: 2px solid palevioletred;
 }
 
-.button {
+.submit {
     border: none;
     color: black;
     margin-top: 10px;
@@ -71,11 +71,4 @@ input {
     box-shadow: 2px 2px 5px palevioletred;
     border-radius: 5px;
     font-size: 16px;
-}
-
-.img-container{
-    display: flex;
-    height:25%;
-    width:25%;
-    border-radius: none;
 }

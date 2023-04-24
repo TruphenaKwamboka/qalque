@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import Arithmetic from "./Pages/Arithmetic";
-import BMI from "./Pages/BMI";
+import Arithmetic from "./Pages/arithmetic/Arithmetic";
+import BMI from "./Pages/bmi/BMI";
 
 function App() {
   return (

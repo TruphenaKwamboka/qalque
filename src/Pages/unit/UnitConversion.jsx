@@ -1,5 +1,5 @@
 import "./unit.css";
-import{Badge} from 'react-bootstrap';
+// import{Badge} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
 
@@ -18,27 +18,27 @@ export default function UnitConversion() {
       setCurrentConversion(event.target.value)
       setValue('')
       setResult('')
-      if(event.target.value=='1'){
+      if(event.target.value==='1'){
         setFromUnit('Kg')
         setToUnit('lbs')
       }
-      else if(value=='2'){
+      else if(value==='2'){
         setFromUnit('m')
         setToUnit('cms')
       }
-      else if(value=='3'){
+      else if(value==='3'){
         setFromUnit('l')
         setToUnit('ml')
       }
-      else if(value=='4'){
+      else if(value==='4'){
         setFromUnit('Kg')
         setToUnit('g')
       }
-      else if(value=='5'){
+      else if(value==='5'){
         setFromUnit('Km')
         setToUnit('m')
       }
-      else if(value=='6'){
+      else if(value==='6'){
         setFromUnit('Inch')
         setToUnit('cm')
       }
@@ -47,44 +47,44 @@ export default function UnitConversion() {
 
     const onValueChange = (event) => {
     setValue(event.target.value)
-    if(currentConversion=='1'){
+    if(currentConversion==='1'){
       setResult(parseFloat(event.target.value)*2.20462);
     }
-    else if(currentConversion=='2'){
+    else if(currentConversion==='2'){
       setResult(parseFloat(event.target.value)*100);
     }
-    else if(currentConversion=='3'){
+    else if(currentConversion==='3'){
       setResult(parseFloat(event.target.value)*1000);
     }
-    else if(currentConversion=='4'){
+    else if(currentConversion==='4'){
       setResult(parseFloat(event.target.value)*1000);
     }
-    else if(currentConversion=='5'){
+    else if(currentConversion==='5'){
       setResult(parseFloat(event.target.value)*1000);
     }
-    else if(currentConversion=='6'){
+    else if(currentConversion==='6'){
       setResult(parseFloat(event.target.value)*2.54);
     }
   }
 
   const onResultChange = (event) => {
     setResult(event.target.value)
-    if(currentConversion=='1'){
+    if(currentConversion==='1'){
       setValue(parseFloat(event.target.value)/2.20462);
     }
-    else if(currentConversion=='2'){
+    else if(currentConversion==='2'){
       setValue(parseFloat(event.target.value)/100);
     }
-    else if(currentConversion=='3'){
+    else if(currentConversion==='3'){
       setValue(parseFloat(event.target.value)/1000);
     }
-    else if(currentConversion=='4'){
+    else if(currentConversion==='4'){
       setValue(parseFloat(event.target.value)/1000);
     }
-    else if(currentConversion=='5'){
+    else if(currentConversion==='5'){
       setValue(parseFloat(event.target.value)/1000);
     }
-    else if(currentConversion=='6'){
+    else if(currentConversion==='6'){
       setValue(parseFloat(event.target.value)/2.54);
     }
   

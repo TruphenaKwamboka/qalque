@@ -92,7 +92,7 @@ export default function UnitConversion() {
   return (
     <Form>
       <Form.Group className="mb-3" controlId="conversion">
-        <Form.Label>Select Your Conversion</Form.Label>
+        <Form.Label className="header">Select Your Conversion</Form.Label>
         <Form.Select aria-label="Default select example" onChange={onSelectChange}>
       <option>Open this select menu</option>
       <option value="1">Kg-lbs</option>

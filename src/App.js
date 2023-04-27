@@ -3,8 +3,7 @@ import Arithmetic from "./Pages/arithmetic/Arithmetic";
 import BMI from "./Pages/bmi/BMI";
 import UnitConversion from "./Pages/unit/UnitConversion";
 import "./index.css";
-// import {Container,Row,Col} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

@@ -1,6 +1,7 @@
 import "./unit.css";
 // import{Badge} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 
 
@@ -90,6 +91,7 @@ export default function UnitConversion() {
   
   }
   return (
+    <div className="unit-form">
     <Form>
       <Form.Group className="mb-3" controlId="conversion">
         <Form.Label className="header">Select Your Conversion</Form.Label>
@@ -113,7 +115,7 @@ export default function UnitConversion() {
         <Form.Control type="text" placeholder="Result" value={result} onChange={onResultChange}/>
       </Form.Group>
     </Form>
-    
+    </div>
   )
 }
 

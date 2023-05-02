@@ -4,4 +4,6 @@ html {
   padding: 0 !important;
 }
 
-
+.navbar{
+  color: red !important;
+}

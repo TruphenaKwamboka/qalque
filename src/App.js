@@ -2,8 +2,9 @@ import { Routes, Route, Link } from "react-router-dom";
 import Arithmetic from "./Pages/arithmetic/Arithmetic";
 import BMI from "./Pages/bmi/BMI";
 import UnitConversion from "./Pages/unit/UnitConversion";
-import "./index.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import CurrencyConversion from "./Pages/currency/CurrencyConversion";
+
+
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Link to="/">Arithmetic</Link>
         <Link to="/bmi">BMI</Link>
         <Link to="/unit">UNIT CONVERSION</Link>
+        <Link to="/currency">Currency Conversion</Link>
       </nav>
       {/* navbar */}
 
@@ -29,6 +31,7 @@ function App() {
         <Route path="/" element={<Arithmetic />} />
         <Route path="/bmi" element={<BMI />} />
         <Route path="/unit" element={<UnitConversion />} />
+        <Route path="/currency" element={<CurrencyConversion />} />
       </Routes>
       {/* body */}
     </>
